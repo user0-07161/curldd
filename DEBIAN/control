@@ -1,0 +1,9 @@
+Package: curldd
+Version: 1.0.0-1
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: User0 <curldd@proton.me>
+Description: This is a Application for putting a iso or raw image directly to a physical drive 
+  without downloading it firstly
+Depends: curl

@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+echo "Usage: curldd url.to/iso/or/any/other/raw/file /dev/sdX (replace "X" with the letter of the drive you want to get writed the iso or raw image on"
+echo "Sleeping 15 seconds for you to ctrl+c the script if the arguments was set wrong and listing drive mappings"
+lsblk
+echo "Locate your drive and ctrl+c the script if it was set wrong, then rerun the script with the correct drive!"
+echo "Otherwise, wait 15 seconds..."
+sleep 15s
+echo "DEBUG: ARGUMENT1: $1"
+echo "DEBUG: ARGUMENT2: $2"
+echo "Starting to write data..."
+curl $1 | dd of=$2
+echo "DONE!"
+
